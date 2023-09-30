@@ -6,7 +6,7 @@ public class Rotate : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-    bool turn = false;
+    public bool turn = false;
     float target;
 
     public TurnDetection td;
@@ -18,14 +18,27 @@ public class Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(jl.ground)
-        // {
-            if(transform.eulerAngles.z <= target || (target == 0 && transform.eulerAngles.z > 90f)){
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, target);
-                turn = false;
-                td.col.enabled = true;
+        if(turn)
+        {
+            if(jl.upwards){
+                if(transform.eulerAngles.z <= target || (target == 0 && transform.eulerAngles.z > 90f)){
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, target);
+                    turn = false;
+                    td.col.enabled = true;
+                }
             }
-        //}
+            else
+            {
+                if((transform.eulerAngles.z >= target && target !=0) || (target == 0 && transform.eulerAngles.z < 90f)){
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, target);
+                    turn = false;
+                    td.col.enabled = true;
+                }
+            }
+            
+        }
+
+        Debug.Log(transform.eulerAngles.z);
 
         // if(jl.roof)
         // {
@@ -35,10 +48,7 @@ public class Rotate : MonoBehaviour
         //         td.col.enabled = true;
         //     }
         // }
-        if(Input.GetMouseButtonDown(1)){
-            turn = true;
-            target = targetAngle(transform.eulerAngles.z);
-        }
+
 
 
 
@@ -49,31 +59,15 @@ public class Rotate : MonoBehaviour
             td.col.enabled = false;
             jl.roof = !jl.roof;
             jl.ground = !jl.ground;
-            jl.sideways = !jl.sideways;
         }
 
 
         
         if(turn){
-            // if(!jl.ground && first){
-            //     transform.RotateAround(player.transform.position, Vector3.forward, -speed * Time.deltaTime);
-            //     first = false;
-            // }
-            // else if(jl.ground && !first)  transform.RotateAround(player.transform.position, Vector3.forward, -speed * Time.deltaTime);
-            // else if(jl.roof && first){
-            //     Debug.Log("Here");
-            //     transform.RotateAround(player.transform.position, Vector3.forward, speed * Time.deltaTime);
-            //     first = false;
-            // }
-            // else if (!jl.roof && !first){
-            //     Debug.Log("No Here");
-            //     transform.RotateAround(player.transform.position, Vector3.forward, speed * Time.deltaTime);
-            // }
-
-           
-            
-
-                transform.RotateAround(player.transform.position, Vector3.forward, -1 * speed * Time.deltaTime);
+            if(jl.upwards)
+                transform.RotateAround(player.transform.position, Vector3.forward, -speed * Time.deltaTime);
+            else
+                transform.RotateAround(player.transform.position, Vector3.forward, speed * Time.deltaTime);
         }
 
 
@@ -83,10 +77,20 @@ public class Rotate : MonoBehaviour
 
     float targetAngle(float z)
     {
-
+        if(jl.upwards)
+        {
             if(z == 0f) return 270f;
             else if(z == 270f) return 180f;
             else if(z == 180f) return 90f;
             else return 0f;
+        }
+        else
+        {
+            if(z == 0f) return 90f;
+            else if(z == 90f) return 180f;
+            else if(z == 180f) return 270f;
+            else return 0f;
+        }
+
     }
 }

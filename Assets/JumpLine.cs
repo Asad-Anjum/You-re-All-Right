@@ -21,7 +21,6 @@ public class JumpLine : MonoBehaviour
     public bool roof = true;
     Quaternion endRotation;
     public float rotationSpeed = 10f;
-    public bool sideways = false;
 
     public TurnDetection td;
     public TurnDetection2 td2;
@@ -31,7 +30,9 @@ public class JumpLine : MonoBehaviour
     public bool moving = false;
     private Animator anim;
     public bool inRange = false;
-    public bool down = false;
+    public bool upwards = false;
+
+    public Rotate rot;
 
 
 
@@ -58,9 +59,11 @@ public class JumpLine : MonoBehaviour
         
         
         
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !moving && !rot.turn)
         {
             move = true;
+            if(distance.y > 0) upwards = true;
+            else upwards = false;
         }
         if(roof)
         {
@@ -74,9 +77,9 @@ public class JumpLine : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             pause = false;
             lr.enabled = true;
+            moving = false;
             roof = !roof;
             ground = !ground;
-            moving = false;
         }
 
         if(moving)
@@ -88,13 +91,7 @@ public class JumpLine : MonoBehaviour
             anim.SetBool("jumping", false);
         }
 
-        if(roof && moving)
-        {
-            down = true;
-        }
-        else
-            down = false;
-
+ 
 
 
 
