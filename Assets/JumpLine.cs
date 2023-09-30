@@ -135,6 +135,7 @@ public class JumpLine : MonoBehaviour
 
                 if(distance.x < 0) {
                     distance.x = 0;
+                    distance.y = -1f;
                 }
                     if(((distance.y/distance.x) > -1f && distance.y < 0) || (distance.x > 0 && distance.y > 0)){
                         distance.x = 1f;
