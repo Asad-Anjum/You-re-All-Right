@@ -15,6 +15,11 @@ public class Rotate : MonoBehaviour
     public JumpLine jl;
     float mult = -1f;
 
+    private bool wasTurning = false; // This tracks if the map was turning in the last frame
+    public static bool hasCompletedRotation = false;
+    private bool processedRotation = false;  // To check if we've processed the completed rotation.
+
+
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +43,7 @@ public class Rotate : MonoBehaviour
             
         }
 
-        Debug.Log(transform.eulerAngles.z);
+        // Debug.Log(transform.eulerAngles.z);
 
         // if(jl.roof)
         // {
@@ -69,6 +74,22 @@ public class Rotate : MonoBehaviour
             else
                 transform.RotateAround(player.transform.position, Vector3.forward, speed * Time.deltaTime);
         }
+
+        if (!turn && wasTurning) // When the rotation has just completed
+        {
+            if (!processedRotation)
+            {
+                hasCompletedRotation = true;
+                processedRotation = true;
+            }
+        }
+        else
+        {
+            hasCompletedRotation = false;
+            processedRotation = false;
+        }
+
+        wasTurning = turn;
 
 
         
