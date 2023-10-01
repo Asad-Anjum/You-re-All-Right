@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         
         transform.position = jl.oldPosition;
 
-        if(jl.moving)
+        if(jl.moving) 
         {
             jl.roof = !jl.roof;
             jl.ground = !jl.ground;
