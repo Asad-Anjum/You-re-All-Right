@@ -49,7 +49,8 @@ public class SpiderEnemy : MonoBehaviour
             transform.Translate(Vector2.left * patrolSpeed * Time.deltaTime, Space.Self);
             
             // Check if it has moved past the starting position.
-            if (Vector3.Distance(transform.position, startPos) < 0.01f)
+            //if (Vector3.Distance(transform.position, startPos) < 0.01f)
+            if (Vector3.Distance(transform.position, startPos) > patrolDistance)
             {
                 movingRight = true;
             }
@@ -67,7 +68,7 @@ public class SpiderEnemy : MonoBehaviour
 
             if (jumpScript.moving)  // Player is jumping.
             {
-                Destroy(gameObject);  // Destroy the enemy.
+               // Destroy(gameObject);  // Destroy the enemy.
             }
             else  // Player is not jumping.
             {
