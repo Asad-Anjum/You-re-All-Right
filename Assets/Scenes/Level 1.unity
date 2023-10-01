@@ -923,7 +923,7 @@ Transform:
   m_GameObject: {fileID: 1220045235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.8705877, y: -0.89, z: 0.18837889}
+  m_LocalPosition: {x: 1.36, y: -0.89, z: 0.18837889}
   m_LocalScale: {x: 0.61176467, y: 0.61176467, z: 0.61176467}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1682,7 +1682,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 11492800333485458, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8705877
+      value: 7.57
       objectReference: {fileID: 0}
     - target: {fileID: 11492800333485458, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1719,6 +1719,18 @@ PrefabInstance:
     - target: {fileID: 11492800333485458, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650812657897602338, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650812657897602338, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650812657897602338, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5282313364111753338, guid: 9e028483e84744d4d8638bb76daa818e, type: 3}
       propertyPath: m_Name
@@ -1929,6 +1941,14 @@ PrefabInstance:
       propertyPath: rot
       value: 
       objectReference: {fileID: 2116522044}
+    - target: {fileID: 145907333506258208, guid: fe07865e34270b8459549a74a6e687de, type: 3}
+      propertyPath: roof
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145907333506258208, guid: fe07865e34270b8459549a74a6e687de, type: 3}
+      propertyPath: ground
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2114096181674478454, guid: fe07865e34270b8459549a74a6e687de, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6
@@ -2004,8 +2024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d4d8eeb1d7b7c4c98815cf224b51fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 3
   hasKey: 0
+  rot: {fileID: 2116522044}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

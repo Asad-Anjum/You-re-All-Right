@@ -1,22 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int health = 100;  // Assuming the player has 100 health points.
+    public int health = 4;  
     public bool hasKey = false;
+    private Animator anim;
+    SpriteRenderer sr;
+    private JumpLine jl;
+    public Rotate rot;
 
-    public void TakeDamage(int damageAmount = 10)  // Default damage amount is 10.
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetInteger("health", health);
+        sr = this.GetComponent<SpriteRenderer>();
+        jl = this.GetComponent<JumpLine>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
+    }
+
+    public void TakeDamage(int damageAmount = 1)  
     {
         health -= damageAmount;
+        anim.SetInteger("health", health);
+        StartCoroutine(DamageFlash());
+        
+        transform.position = jl.oldPosition;
+
+        if(jl.moving)
+        {
+            jl.roof = !jl.roof;
+            jl.ground = !jl.ground;
+        }
+
+        
 
         // Optional: You can add feedback, e.g., change player color, play a sound, etc.
 
         if (health <= 0)
         {
-            // Handle player's death. 
-            // e.g., restart the level, show a game over screen, etc.
+            RestartGame();
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public IEnumerator DamageFlash()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+
     }
     }

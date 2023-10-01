@@ -14,6 +14,7 @@ public class Rotate : MonoBehaviour
     public TurnDetection3 td3;
     public JumpLine jl;
     float mult = -1f;
+   
 
     private bool wasTurning = false; // This tracks if the map was turning in the last frame
     public static bool hasCompletedRotation = false;
@@ -42,18 +43,6 @@ public class Rotate : MonoBehaviour
             }
             
         }
-
-        // Debug.Log(transform.eulerAngles.z);
-
-        // if(jl.roof)
-        // {
-        //     if(transform.eulerAngles.z >= target || (target == 0 && transform.eulerAngles.z < 90f)){
-        //         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, target);
-        //         turn = false;
-        //         td.col.enabled = true;
-        //     }
-        // }
-
 
 
 

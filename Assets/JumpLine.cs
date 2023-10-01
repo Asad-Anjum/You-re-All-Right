@@ -33,7 +33,8 @@ public class JumpLine : MonoBehaviour
     public bool upwards = false;
 
     public Rotate rot;
-
+    int counter = 0;
+    public Vector3 oldPosition;
 
 
     void Start()
@@ -54,8 +55,11 @@ public class JumpLine : MonoBehaviour
 
     void Update()
     {
+
         CalculateJumpVector();
         DrawLine();
+        
+        if(counter<3) counter++;
         
         
         
@@ -73,13 +77,14 @@ public class JumpLine : MonoBehaviour
         
 
 
-        if(pause){
+        if(pause && counter > 2){
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             pause = false;
             lr.enabled = true;
             moving = false;
             roof = !roof;
             ground = !ground;
+            Debug.Log("Pauses");
         }
 
         if(moving)
@@ -102,6 +107,7 @@ public class JumpLine : MonoBehaviour
     {
         if(move)
         {
+            oldPosition = transform.position;
             moving = true;
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
