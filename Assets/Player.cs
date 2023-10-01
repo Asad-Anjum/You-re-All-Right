@@ -34,9 +34,10 @@ public class Player : MonoBehaviour
         anim.SetInteger("health", health);
         StartCoroutine(DamageFlash());
         
+        if(!rot.turn)
         transform.position = jl.oldPosition;
 
-        if(jl.moving) 
+        if(jl.moving && !rot.turn) 
         {
             jl.roof = !jl.roof;
             jl.ground = !jl.ground;
