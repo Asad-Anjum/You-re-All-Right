@@ -4539,7 +4539,7 @@ PrefabInstance:
     - target: {fileID: 5409550167840676900, guid: 740b5054491f3e04aa6710555ad4f21b, type: 3}
       propertyPath: startPosMarker
       value: 
-      objectReference: {fileID: 322652518}
+      objectReference: {fileID: 760278949}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
