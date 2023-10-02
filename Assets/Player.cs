@@ -12,13 +12,17 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     private JumpLine jl;
     public Rotate rot;
+    public TextMeshProUGUI healthDisplay;
+    public float displayDuration = 1.0f;  
 
     void Start()
     {
+        healthDisplay.enabled = false;
         anim = GetComponent<Animator>();
         anim.SetInteger("health", health);
         sr = this.GetComponent<SpriteRenderer>();
         jl = this.GetComponent<JumpLine>();
+        healthDisplay.text = health.ToString();
     }
 
     void Update()
@@ -36,7 +40,9 @@ public class Player : MonoBehaviour
         anim.SetInteger("health", health);
         StartCoroutine(DamageFlash());
 
-        
+        healthDisplay.text = health.ToString();
+        healthDisplay.enabled = true; 
+        StartCoroutine(HideHealthDisplayAfterDelay());
 
         
         if(!rot.turn && !rot.firstAfterTurn)
@@ -83,6 +89,12 @@ public class Player : MonoBehaviour
         sr.color = Color.white;
         yield return new WaitForSeconds(0.1f);
 
+    }
+
+    IEnumerator HideHealthDisplayAfterDelay()
+    {
+        yield return new WaitForSeconds(displayDuration);
+        healthDisplay.enabled = false;  // Hide the health display
     }
 
 
