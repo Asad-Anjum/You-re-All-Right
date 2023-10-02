@@ -6177,7 +6177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d4d8eeb1d7b7c4c98815cf224b51fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 4
   hasKey: 0
   rot: {fileID: 2116522044}
 --- !u!1660057539 &9223372036854775807

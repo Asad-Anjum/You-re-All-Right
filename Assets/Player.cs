@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public int health = 4;  
     public bool hasKey = false;
-    private Animator anim;
+    public Animator anim;
     SpriteRenderer sr;
     private JumpLine jl;
     public Rotate rot;
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
         {
             RestartGame();
         }
+        Debug.Log(health);
     }
 
     public void TakeDamage(int damageAmount = 1)  
@@ -33,6 +34,8 @@ public class Player : MonoBehaviour
         health -= damageAmount;
         anim.SetInteger("health", health);
         StartCoroutine(DamageFlash());
+        
+
         
         if(!rot.turn && !rot.firstAfterTurn)
         {
