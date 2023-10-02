@@ -80,11 +80,16 @@ public class JumpLine : MonoBehaviour
         {
             resetTutorial.firstResetDone = true;
             transform.position = oldPosition;
+            // roof = !roof;
+            // ground = !ground;
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
             roof = !roof;
             ground = !ground;
         }
 
-        Debug.Log(jumpLine);
         
         if(roof)
         {

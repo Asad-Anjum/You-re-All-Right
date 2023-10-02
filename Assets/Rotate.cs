@@ -47,8 +47,9 @@ public class Rotate : MonoBehaviour
         }
 
 
-
+        
         if(td.turn == true){ //&& td2.turn == true && td3.turn == true){
+            Debug.Log("yes");
             turn = true;
             target = targetAngle(transform.eulerAngles.z);
             td.turn = false;
