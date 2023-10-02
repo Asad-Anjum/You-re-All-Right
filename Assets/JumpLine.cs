@@ -37,6 +37,7 @@ public class JumpLine : MonoBehaviour
     public Vector3 oldPosition;
 
 
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -65,6 +66,7 @@ public class JumpLine : MonoBehaviour
         
         if(Input.GetMouseButtonDown(0) && !moving && !rot.turn)
         {
+            tutorial.firstJumpDone = true;
             move = true;
             rot.firstAfterTurn = false;
             if(distance.y > 0) upwards = true;
@@ -73,6 +75,7 @@ public class JumpLine : MonoBehaviour
 
         if(!moving && Input.GetMouseButtonDown(1) && !rot.turn && !rot.firstAfterTurn)
         {
+            tutorial.firstResetDone = true;
             transform.position = oldPosition;
         }
         

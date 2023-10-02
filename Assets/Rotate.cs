@@ -25,7 +25,7 @@ public class Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(firstAfterTurn);
+        // Debug.Log(firstAfterTurn);
         if(turn)
         {
             if(jl.upwards){

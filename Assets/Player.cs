@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         {
             RestartGame();
         }
-        Debug.Log(health);
+        // Debug.Log(health);
     }
 
     public void TakeDamage(int damageAmount = 1)  
