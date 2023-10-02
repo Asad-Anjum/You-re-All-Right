@@ -80,6 +80,8 @@ public class JumpLine : MonoBehaviour
         {
             resetTutorial.firstResetDone = true;
             transform.position = oldPosition;
+            roof = !roof;
+            ground = !ground;
         }
 
         Debug.Log(jumpLine);
