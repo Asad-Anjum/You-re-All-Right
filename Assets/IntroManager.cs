@@ -9,4 +9,14 @@ public class IntroScreenController : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1"); // Replace "MainGame" with the name of your main game scene
     }
+
+    public void BackToIntro()
+    {
+        SceneManager.LoadScene("Intro"); // Replace "MainGame" with the name of your main game scene
+    }
+
+    public void KnownIssues()
+    {
+        SceneManager.LoadScene("KnownIssues"); // Replace "MainGame" with the name of your main game scene
+    }
 }
