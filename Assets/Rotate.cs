@@ -14,6 +14,7 @@ public class Rotate : MonoBehaviour
     public TurnDetection3 td3;
     public JumpLine jl;
     float mult = -1f;
+    public bool firstAfterTurn = false;
    
 
     private bool wasTurning = false; // This tracks if the map was turning in the last frame
@@ -24,6 +25,7 @@ public class Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(firstAfterTurn);
         if(turn)
         {
             if(jl.upwards){
@@ -71,6 +73,7 @@ public class Rotate : MonoBehaviour
                 hasCompletedRotation = true;
                 processedRotation = true;
             }
+            firstAfterTurn = true;
         }
         else
         {

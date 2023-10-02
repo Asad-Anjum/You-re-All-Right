@@ -68,7 +68,7 @@ public class SpiderEnemy : MonoBehaviour
 
             if (jumpScript.moving)  // Player is jumping.
             {
-               // Destroy(gameObject);  // Destroy the enemy.
+                Destroy(gameObject);  // Destroy the enemy.
             }
             else  // Player is not jumping.
             {

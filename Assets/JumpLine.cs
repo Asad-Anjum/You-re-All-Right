@@ -66,9 +66,16 @@ public class JumpLine : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && !moving && !rot.turn)
         {
             move = true;
+            rot.firstAfterTurn = false;
             if(distance.y > 0) upwards = true;
             else upwards = false;
         }
+
+        if(!moving && Input.GetMouseButtonDown(1) && !rot.turn && !rot.firstAfterTurn)
+        {
+            transform.position = oldPosition;
+        }
+        
         if(roof)
         {
             sr.flipY = true;
