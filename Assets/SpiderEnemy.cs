@@ -12,6 +12,7 @@ public class SpiderEnemy : MonoBehaviour
     private Vector3 offset; // To store the distance from the startPos
 
     public Transform startPosMarker;  // Drag the corresponding startPos marker here in the editor.
+    //public tutorial killTutorial;
 
 
     void Start()
@@ -68,7 +69,7 @@ public class SpiderEnemy : MonoBehaviour
 
             if (jumpScript.moving)  // Player is jumping.
             {
-                tutorial.firstKillDone = true;
+                //killTutorial.firstKillDone = true;
                 Destroy(gameObject);  // Destroy the enemy.
             }
             else  // Player is not jumping.

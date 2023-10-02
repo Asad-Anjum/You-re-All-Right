@@ -6,9 +6,9 @@ public class tutorial : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public float fadeDuration = 1.0f;
-    public static bool firstJumpDone = false;
-    public static bool firstResetDone = false;
-    public static bool firstKillDone = false;
+    public bool firstJumpDone = false;
+    public bool firstResetDone = false;
+    public bool firstKillDone = false;
     public string doneCriteria = "none";
 
     // Start is called before the first frame update

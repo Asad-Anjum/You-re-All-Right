@@ -35,6 +35,9 @@ public class JumpLine : MonoBehaviour
     public Rotate rot;
     int counter = 0;
     public Vector3 oldPosition;
+    public tutorial jumpTutorial;
+    public tutorial resetTutorial;
+    
 
 
 
@@ -66,7 +69,7 @@ public class JumpLine : MonoBehaviour
         
         if(Input.GetMouseButtonDown(0) && !moving && !rot.turn)
         {
-            tutorial.firstJumpDone = true;
+            jumpTutorial.firstJumpDone = true;
             move = true;
             rot.firstAfterTurn = false;
             if(distance.y > 0) upwards = true;
@@ -75,9 +78,11 @@ public class JumpLine : MonoBehaviour
 
         if(!moving && Input.GetMouseButtonDown(1) && !rot.turn && !rot.firstAfterTurn)
         {
-            tutorial.firstResetDone = true;
+            resetTutorial.firstResetDone = true;
             transform.position = oldPosition;
         }
+
+        Debug.Log(jumpLine);
         
         if(roof)
         {
