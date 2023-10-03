@@ -37,6 +37,8 @@ public class JumpLine : MonoBehaviour
     public Vector3 oldPosition;
     public tutorial jumpTutorial;
     public tutorial resetTutorial;
+
+
     
 
 

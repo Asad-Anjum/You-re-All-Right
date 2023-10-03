@@ -13,12 +13,12 @@ public class SpiderEnemy : MonoBehaviour
 
     public Transform startPosMarker;  // Drag the corresponding startPos marker here in the editor.
     //public tutorial killTutorial;
-
+    AudioSource aud;
 
     void Start()
     {
         startPos = startPosMarker.position;
-        
+        aud = this.GetComponent<AudioSource>();
 
     }
 
@@ -70,6 +70,7 @@ public class SpiderEnemy : MonoBehaviour
             if (jumpScript.moving)  // Player is jumping.
             {
                 //killTutorial.firstKillDone = true;
+                aud.Play();
                 Destroy(gameObject);  // Destroy the enemy.
             }
             else  // Player is not jumping.

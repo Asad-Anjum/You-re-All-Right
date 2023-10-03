@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Rotate rot;
     public TextMeshProUGUI healthDisplay;
     public float displayDuration = 1.0f;  
+    public AudioSource aud;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount = 1)  
     {
+        aud.Play();
         health -= damageAmount;
         anim.SetInteger("health", health);
         StartCoroutine(DamageFlash());
